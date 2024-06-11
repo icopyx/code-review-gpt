@@ -38,6 +38,7 @@ export const getGitHubEnvVariables = (): Record<string, string> => {
     githubSha: process.env.GITHUB_SHA ?? "",
     baseSha: process.env.BASE_SHA ?? "",
     githubToken: process.env.GITHUB_TOKEN ?? "",
+    gptLang: process.env.GPT_LANG ?? "English",
   };
 };
 
@@ -49,6 +50,7 @@ export const getGitLabEnvVariables = (): Record<string, string> => {
     "CI_COMMIT_SHA",
     "GITLAB_TOKEN",
     "GITLAB_HOST",
+    "GPT_LANG",
   ].filter((varName) => !process.env[varName]);
   if (missingVars.length > 0) {
     logger.error(`Missing environment variables: ${missingVars.join(", ")}`);
@@ -64,6 +66,7 @@ export const getGitLabEnvVariables = (): Record<string, string> => {
     projectId: process.env.CI_PROJECT_ID ?? "",
     mergeRequestIIdString: process.env.CI_MERGE_REQUEST_IID ?? "",
     gitlabHost: process.env.GITLAB_HOST ?? "https://gitlab.com",
+    gptLang: process.env.GPT_LANG ?? "English",
   };
 };
 
@@ -81,5 +84,6 @@ export const gitAzdevEnvVariables = (): Record<string, string> => {
     azdevSha: process.env.SYSTEM_PULLREQUEST_SOURCECOMMITID ?? "",
     baseSha: process.env.BASE_SHA ?? "",
     azdevToken: process.env.API_TOKEN ?? "",
+    gptLang: process.env.GPT_LANG ?? "English",
   };
 };

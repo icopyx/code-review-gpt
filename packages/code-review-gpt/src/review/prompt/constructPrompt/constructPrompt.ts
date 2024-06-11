@@ -4,6 +4,7 @@ import { fullFilesIntoBatches } from "./batchFiles/fullFiles";
 import { PromptFile, ReviewFile } from "../../../common/types";
 import { getLanguageName } from "../getLanguageOfFile";
 import { instructionPrompt } from "../prompts";
+import {getGitLabEnvVariables} from "../../../config";
 
 export const constructPromptsArray = (
   files: ReviewFile[],
@@ -38,8 +39,16 @@ export const constructPromptsArray = (
     getLanguageName(files[0].fileName) //assume the first file is representative of the language
   );
 
+  const {  gptLang } =
+      getGitLabEnvVariables();
+
+  const countryToInstructionPrompt = languageToInstructionPrompt.replace(
+      "{GPT_LANG}",
+      gptLang //assume the first file is representative of the language
+  );
+
   const prompts = promptPayloads.map((payload) => {
-    return languageToInstructionPrompt + JSON.stringify(payload);
+    return countryToInstructionPrompt + JSON.stringify(payload);
   });
 
   return prompts;

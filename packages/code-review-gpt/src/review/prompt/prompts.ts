@@ -16,6 +16,8 @@ Ensure the feedback details are brief, concise, accurate. If there are multiple 
 Include brief example code snippets in the feedback details for your suggested changes when you're confident your suggestions are improvements. Use the same programming language as the file under review.
 If there are multiple improvements you suggest in the feedback details, use an ordered list to indicate the priority of the changes.
 
+Please be sure to provide details in {GPT_LANG}.
+
 Format the response in a valid JSON format as a list of feedbacks, where the value is an object containing the filename ("fileName"),  risk score ("riskScore") and the feedback ("details"). The schema of the JSON feedback object must be:
 {
   "fileName": {

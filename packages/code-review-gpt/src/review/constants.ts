@@ -55,7 +55,7 @@ export const languageMap: { [key: string]: string } = {
   ".vue": "Vue",
   ".tf": "Terraform",
   ".hcl": "Terraform",
-  ".swift":"Swift"
+  ".swift":"iOS App"
 };
 
 export const supportedFiles = new Set(Object.keys(languageMap));
