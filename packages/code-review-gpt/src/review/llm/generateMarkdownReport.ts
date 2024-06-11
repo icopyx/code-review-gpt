@@ -12,11 +12,7 @@ ${feedbacks.map(formatFeedback).join("\n---\n")}
 `;
 
 export const generateMarkdownReport = (
-  feedbacks: IFeedback[],
-  summary: string
+  feedbacks: IFeedback[]
 ): string => `
 ${formatFeedbacks(feedbacks)}
----
-${summary}
-
 `;

@@ -43,7 +43,7 @@ const pickWorstFeedbacks = (
 
   //remove feedbacks with risk score of 1 from consideration.
   const filteredFeedbacks = feedbacks.filter(
-    (feedback) => feedback.riskScore > 1
+    (feedback) => feedback.riskScore > 0
   );
 
   filteredFeedbacks.forEach((feedback) => {

@@ -31,12 +31,11 @@ export const askAI = async (
       )
       .toString()}`
   );
-  const summary = await createSummary(model, feedbacks);
-
-  logger.debug(`Summary of feedbacks: ${summary}`);
+  // const summary = await createSummary(model, feedbacks);
+  // logger.debug(`Summary of feedbacks: ${summary}`);
 
   return {
-    markdownReport: generateMarkdownReport(feedbacks, summary),
+    markdownReport: generateMarkdownReport(feedbacks),
     feedbacks: feedbacks,
   };
 };
